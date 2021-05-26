@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Formulario de Registro</title>
+</head>
+
+<body>
+    <div>
+        <!-- Títulos de h1 a h6-->
+        <h1>Mi Formulario de Registro</h1><br>
+    </div>
+
+    <div>
+        <form action="process.php" method="post">
+            <!-- Datos de registro -->
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre"><br><br>
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" name="apellido"><br><br>
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email"><br><br>
+            <label for="contraseña">Contraseña:</label>
+            <input type="password" id="contraseña" name="contraseña"><br><br>
+            <label for="confirmar">Confirmar:</label>
+            <input type="password" id="confirmar" name="confirmar"><br><br>
+            <label for="cumpleaños">Cumpleaños:</label>
+            <input type="date" id="cumpleaños" name="cumpleaños"><br><br><br>
+            <!-- Sexo -->
+            <input type="radio" id="hombre" name="genero" value="hombre">
+            <label for="hombre">Hombre</label>
+            <input type="radio" id="mujer" name="genero" value="mujer">
+            <label for="mujer">Mujer</label>
+            <input type="radio" id="otro" name="genero" value="otro">
+            <label for="otro">Otro</label><br>
+            <!-- Descripción -->
+            <p>Una breve descripción de ti:</p>
+            <textarea name="description" cols="32" rows="5"></textarea><br>
+            <!-- Lenguaje -->
+            <p>Lenguaje Favorito:
+                <select name="lenguaje">
+                    <option value="javascript">JavaScript</option>
+                    <option value="ruby">Ruby</option>
+                    <option value="python">Python</option>
+                    <option value="java">Java</option>
+                    <option value="otro">Otro</option>
+                </select>
+            </p>
+            <!-- Enviar -->
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+</body>
+
+</html>
