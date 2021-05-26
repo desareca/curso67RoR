@@ -11,14 +11,14 @@ GIT
 git config --global user.name "nombre apellido"
 git config --global user.email "sucorreo@gmail.com"
 
-
-git init
-git add .
+# PARA CONFIGURAR UN REPOSITORIO
+git init -> una vez por el repositorio
+git add . -> agregue todos lor archivos
 git commit -m "first commit"
 git remote add origin https://github.com/sunick/curso67RoR.git
 git push -u origin master
 
-#ESTO REALIZARLO DESPUES SIEMPRE 
+# ESTO REALIZARLO DESPUES SIEMPRE 
 git add .
 git commit -m "first commit"
 git push -u origin master
