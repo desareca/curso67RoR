@@ -1,0 +1,266 @@
+* {
+    /* outline: 1px dotted red; */
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+}
+
+.container {
+    width: 970px;
+    height: 821px;
+    margin: 0px auto 0px auto;
+    padding-top: 0px;
+    background-color: rgb(38, 81, 117);
+}
+
+img {
+    width: 320px;
+    height: auto;
+    margin: 10px 260px 0px 20px;
+    display: inline-block;
+}
+
+.container .header li {
+    display: inline-block;
+    vertical-align: top;
+}
+
+p {
+    color: white;
+    text-align: right;
+    margin-right: 50px;
+    margin-bottom: 0px;
+}
+
+a {
+    color: rgb(246, 198, 0);
+}
+
+.blackbar {
+    color: black;
+}
+
+.searchinput {
+    width: 265px;
+    height: 50px;
+    background-color: rgb(68, 68, 68);
+    border-radius: 15px;
+    display: flex;
+    box-shadow: 1.5px 1.5px 1.5px 1.5px;
+    margin: 10px 10px 10px 85px;
+}
+
+.searchtext {
+    width: 150px;
+    height: 25px;
+    margin: 10px 0px 0px 35px;
+    text-align: center;
+    display: inline-block;
+    border-bottom: 2px solid rgb(229, 206, 203);
+    border-right: 2px solid rgb(229, 206, 203);
+    border-top: 2px solid rgb(116, 112, 109);
+    border-left: 2px solid rgb(116, 112, 109);
+}
+
+.searchbutton {
+    width: 33px;
+    height: 25px;
+    display: inline;
+    margin: 12px 0px 30px 10px;
+    vertical-align: middle;
+    background-color: rgb(38, 81, 117);
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+    box-shadow: 1px 1px 1px 1px rgb(42, 42, 42);
+    border-top: 2px solid rgb(229, 206, 203);
+    border-left: 2px solid rgb(229, 206, 203);
+    border-bottom: 2px solid rgb(116, 112, 109);
+    border-right: 2px solid rgb(116, 112, 109);
+}
+
+.navbar {
+    width: 830px;
+    height: 20px;
+    margin: 10px 60px 0px 70px;
+    padding: 15px;
+    border-radius: 7px;
+    box-shadow: 1.5px 1.5px 1.5px 1.5px rgb(42, 42, 42);
+    background: linear-gradient(rgb(56, 118, 171), rgb(74, 126, 171), rgb(56, 118, 171));
+    display: inline-block;
+}
+
+.navbar li {
+    display: inline-block;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin: -3px 30px 0px 25px;
+    font-size: 21px;
+}
+
+#navvert {
+    display: inline-block;
+    width: 190px;
+    padding-left: 100px;
+    padding-top: 25px;
+    list-style: none;
+    vertical-align: top;
+}
+
+#navvert li {
+    text-align: center;
+    margin: 10px 0px 10px 0px;
+}
+
+#navvert li img {
+    width: 8px;
+    height: auto;
+    margin: auto 1px auto auto;
+    vertical-align: middle;
+}
+
+#navvert li a {
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    margin: auto;
+}
+
+.textmain {
+    display: inline-block;
+    width: 630px;
+    padding: 0px;
+}
+
+.textmain p {
+    width: 630px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.textmain ul {
+    list-style: none;
+}
+
+.textmain li {
+    text-align: center;
+    margin: 0px 0px 10px 0px;
+    font-size: 20px;
+    color: rgb(246, 198, 0);
+    font-style: italic;
+}
+
+.textmain .modcolor {
+    color: white;
+    font-style: normal;
+}
+
+.items {
+    width: 970px;
+    height: 235px;
+    background-color: white;
+    margin-top: 10px;
+    border-top: 5px solid rgb(26, 56, 82);
+    display: inline-block;
+}
+
+.get {
+    width: 395px;
+    height: 50px;
+    margin-top: 10px;
+    margin-left: 100px;
+    border-top: 5px solid rgb(117, 168, 211);
+    display: inline-block;
+    vertical-align: top;
+}
+
+.get h3 {
+    margin: 0px 0px 5px 90px;
+}
+
+.get p {
+    width: 300px;
+    color: black;
+    text-align: center;
+    margin: 0px 5px 0px 10px;
+}
+
+.get .listblue {
+    width: 240px;
+    text-align: center;
+    margin-left: 45px;
+    list-style-type: square;
+}
+
+.get .listblue p {
+    width: 240px;
+    color: rgb(117, 168, 211);
+}
+
+.app {
+    width: 395px;
+    height: 50px;
+    margin-top: 10px;
+    margin-left: 30px;
+    border-top: 5px solid rgb(117, 168, 211);
+    display: inline-block;
+    vertical-align: top;
+}
+
+.app h3 {
+    margin: 0px 0px 5px 90px;
+}
+
+.app .bluet {
+    color: rgb(117, 168, 211);
+    font-size: 14px;
+}
+
+.app p {
+    width: 295px;
+    color: black;
+    text-align: center;
+    margin: 0px 5px 0px 10px;
+}
+
+.app .listblue {
+    width: 240px;
+    text-align: center;
+    margin-left: 45px;
+    list-style-type: square;
+}
+
+.app .listblue p {
+    width: 240px;
+    color: rgb(117, 168, 211);
+}
+
+.footer {
+    width: 970px;
+    height: 92px;
+    display: inline-block;
+    padding: 10px auto 10px auto;
+    border-bottom: 3px solid white;
+    background: linear-gradient(rgb(38, 82, 118), rgb(55, 118, 171));
+}
+
+.footer ul {
+    padding-left: 160px;
+}
+
+.footer ul li {
+    display: inline-block;
+    margin: 35px 10px 15px 55px;
+    color: rgb(137, 186, 227);
+}
+
+.footer p {
+    text-align: center;
+    color: rgb(137, 186, 227);
+    font-size: 12px;
+    margin-top: 5px;
+}
