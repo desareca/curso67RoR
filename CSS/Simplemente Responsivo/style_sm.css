@@ -1,0 +1,52 @@
+* {
+    /* outline: 1px dotted red; */
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+}
+
+h1 {
+    padding: 15px;
+    margin: 15px;
+    background-color: rgb(179, 179, 179);
+}
+
+p {
+    padding: 15px;
+    margin: 15px;
+    background-color: rgb(204, 204, 204);
+    font-size: large;
+    display: block;
+}
+
+.tbold {
+    font-weight: bolder;
+}
+
+.byellow {
+    background-color: rgb(255, 255, 154);
+}
+
+@media only screen and (max-width: 480px) {
+    .med,
+    .lg {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 481px) {
+    .sm,
+    .lg {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .sm,
+    .med {
+        display: none;
+    }
+    .lg {
+        display: block;
+    }
+}
