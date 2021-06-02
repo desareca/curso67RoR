@@ -1,0 +1,119 @@
+/*CSS reset settings here*/
+
+* {
+    /* outline: 1px dotted red; */
+    margin: 0px;
+    padding: 0px;
+}
+
+.wrapper {
+    background-color: silver;
+    padding: 10px;
+}
+
+.header {
+    min-height: 100px;
+    width: 98%;
+    background-color: green;
+    margin: 10px;
+}
+
+.navigation {
+    min-height: 225px;
+    min-width: 200px;
+    width: auto;
+    background-color: blue;
+    margin: 10px 10px 10px 10px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.main_content {
+    min-height: 200px;
+    width: calc(98% - 235px);
+    background-color: red;
+    margin: 10px 0px 10px 0px;
+    padding: 10px 10px 10px 10px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.subcontents {
+    min-height: 100px;
+    min-width: 200px;
+    width: calc((100%)/3 - 23px);
+    /* max-width: 300px; */
+    background-color: yellow;
+    margin: 10px;
+    display: inline-block;
+}
+
+.main_content #advertisement {
+    min-height: 60px;
+    width: calc(100% - 20px);
+    background-color: blueviolet;
+    margin: 10px;
+    display: block;
+}
+
+@media only screen and (max-width: 1023px) {
+    .navigation {
+        display: none;
+    }
+    .main_content {
+        min-height: 200px;
+        width: calc(98% - 20px);
+        background-color: red;
+        margin: 10px 10px 10px 10px;
+        padding: 10px 10px 10px 10px;
+        display: inline-block;
+        vertical-align: top;
+    }
+    .subcontents {
+        min-height: 100px;
+        min-width: 150px;
+        width: calc((100%)/2 - 23px);
+        /* max-width: 300px; */
+        background-color: yellow;
+        margin: 10px;
+        display: inline-block;
+    }
+    .main_content #advertisement {
+        min-height: 60px;
+        width: calc(100% - 20px);
+        background-color: blueviolet;
+        margin: 10px;
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 479px) {
+    .navigation {
+        display: none;
+    }
+    .main_content {
+        min-height: 200px;
+        width: calc(98% - 20px);
+        background-color: red;
+        margin: 10px 10px 10px 10px;
+        padding: 10px 10px 10px 10px;
+        display: inline-block;
+        vertical-align: top;
+    }
+    .subcontents {
+        min-height: 100px;
+        min-width: 200px;
+        width: calc(100% - 20px);
+        /* max-width: 300px; */
+        background-color: yellow;
+        margin: 10px;
+        display: inline-block;
+    }
+    .main_content #advertisement {
+        min-height: 60px;
+        width: calc(100% - 20px);
+        background-color: blueviolet;
+        margin: 10px;
+        display: block;
+    }
+}
