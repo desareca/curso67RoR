@@ -1,0 +1,38 @@
+.navbar,
+.navbar-expand-lg,
+.navbar-light,
+.bg-light,
+.navbar-collapse a,
+.dropdown-menu {
+    background-color: rgb(128, 126, 104) !important;
+    color: rgb(213, 210, 174) !important;
+}
+
+.signin {
+    background-color: rgb(213, 210, 174);
+    border-color: rgb(213, 210, 174);
+    margin-right: 2px;
+}
+
+.signup {
+    border-color: rgb(213, 210, 174);
+    color: rgb(213, 210, 174);
+    margin-left: 2px;
+}
+
+.jumbotron {
+    background-color: rgb(213, 210, 174);
+}
+
+.jimg img {
+    width: 170px;
+    height: auto;
+    border: 6px solid black;
+    padding: 10px;
+    margin: 2px;
+    background-color: rgb(130, 180, 238);
+}
+
+.jumbotron .par {
+    background-color: rgb(243, 104, 112);
+}

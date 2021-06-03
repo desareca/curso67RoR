@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap</title>
+    <!-- load Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style_bstrp.css">
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="images/catandninja.png" width="80" height="auto" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#" data-toggle="tooltip" data-placement="top" title="Usted sigue aquí! &#128513">
+                        Home <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Más Información!!!
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="https://www.ciudaddemascotas.com/blog/blogs-gatos">
+                            Sobre gatos &#128049&#128049&#128049
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="https://github.com/desareca/curso67RoR/tree/master/CSS">
+                            &#128165 Código en Github!!! &#128170&#128165
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <!-- form -->
+            <form class="form-inline my-2 my-lg-0">
+                <button class="btn btn-warning my-2 btn-sm signin" type="button" data-toggle="tooltip" data-placement="top" title="Esto no hace nada &#128557">
+                    Sign In
+                </button>
+                <button class="btn btn-outline-warning my-2 btn-sm signup" type="button" data-toggle="tooltip" data-placement="top" title="Aún no hay registro &#129318">
+                    Sign Up
+                </button>
+
+            </form>
+        </div>
+    </nav>
+
+    <!-- jumbotron -->
+    <div class="jumbotron">
+        <h1 class="display-4">Mostrando bloques (responsivo!)</h1>
+        <p class="lead">Este es un ejemplo de uso de <span>Bootstrap</span> aplicado al ejercicio mostrando bloques.</p>
+        <hr class="my-4">
+
+        <!-- row1 -->
+        <div class="row justify-content-md-center">
+            <div class="jimg col-sm-auto">
+                <img src="images/dojocat.jpg" alt="dojocat image" data-toggle="tooltip" data-placement="top" title="dojocat">
+            </div>
+            <div class="jimg col-sm-auto">
+                <img class="par" src="images/heisencat.png" alt="heisencat image" data-toggle="tooltip" data-placement="top" title="heisencat">
+            </div>
+            <div class="jimg col-sm-auto">
+                <img src="images/linkcat.png" alt="linkcat image" data-toggle="tooltip" data-placement="top" title="linkcat">
+            </div>
+            <div class="jimg col-sm-auto">
+                <img class="par" src="images/ironcat.png" alt="ironcat image" data-toggle="tooltip" data-placement="top" title="ironcat">
+            </div>
+            <div class="jimg col-sm-auto">
+                <img src="images/defunktocat.png" alt="defunktocat image" data-toggle="tooltip" data-placement="top" title="defunktocat">
+            </div>
+        </div>
+        <!-- row2 -->
+        <div class="row justify-content-md-center">
+            <div class="jimg col-sm-auto">
+                <img src="images/coder2.jpg" alt="coder2 image" data-toggle="tooltip" data-placement="top" title="coder2">
+            </div>
+            <div class="jimg col-sm-auto">
+                <img class="par" src="images/riddlocat.png" alt="riddlocat image" data-toggle="tooltip" data-placement="top" title="riddlocat">
+            </div>
+            <div class="jimg col-sm-auto">
+                <img src="images/chellocat.jpg" alt="chellocat image" data-toggle="tooltip" data-placement="top" title="chellocat">
+            </div>
+            <div class="jimg col-sm-auto">
+                <img class="par" src="images/stormtroopocat.png" alt="stormtroopocat image" data-toggle="tooltip" data-placement="top" title="stormtroopocat">
+            </div>
+            <div class="jimg col-sm-auto">
+                <img src="images/visionary.jpg" alt="visionary image" data-toggle="tooltip" data-placement="top" title="visionary">
+            </div>
+        </div>
+        <!-- row3 -->
+        <div class="row justify-content-md-center">
+            <div class="jimg col-sm-auto">
+                <img src="images/cherry.jpg" alt="cherry image" data-toggle="tooltip" data-placement="top" title="cherry">
+            </div>
+            <div class="jimg col-sm-auto">
+                <img class="par" src="images/oktobercat.png" alt="oktobercat image" data-toggle="tooltip" data-placement="top" title="oktobercat">
+            </div>
+            <div class="jimg col-sm-auto">
+                <img src="images/mario.png" alt="mario image" data-toggle="tooltip" data-placement="top" title="mario">
+            </div>
+            <div class="jimg col-sm-auto">
+                <img class="par" src="images/cooler.png" alt="cooler image" data-toggle="tooltip" data-placement="top" title="cooler">
+            </div>
+            <div class="jimg col-sm-auto">
+                <img src="images/jean-luc-picat.jpg" alt="jean-luc-picat image" data-toggle="tooltip" data-placement="top" title="jean-luc-picat">
+            </div>
+        </div>
+        <!-- row4 -->
+        <div class="row justify-content-md-center">
+            <div class="jimg col-sm-auto">
+                <img src="images/aidorucat.png" alt="aidorucat image" data-toggle="tooltip" data-placement="top" title="aidorucat">
+            </div>
+            <div class="jimg col-sm-auto">
+                <img class="par" src="images/domo-cat.png" alt="domo-cat image" data-toggle="tooltip" data-placement="top" title="domo-cat">
+            </div>
+            <div class="jimg col-sm-auto">
+                <img src="images/kantana.jpg" alt="kantana image" data-toggle="tooltip" data-placement="top" title="kantana">
+            </div>
+            <div class="jimg col-sm-auto">
+                <img class="par" src="images/daftpunk.gif" alt="daftpunk image" data-toggle="tooltip" data-placement="top" title="daftpunk">
+            </div>
+            <div class="jimg col-sm-auto">
+                <img src="images/codercat.jpg" alt="codercat image" data-toggle="tooltip" data-placement="top" title="codercat">
+            </div>
+        </div>
+
+
+
+
+
+
+
+</body>
+
+</html>
