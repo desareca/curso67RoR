@@ -1,0 +1,8 @@
+Crea una función Fib(n) que devuelve el enésimo número Fibonacci. Usa recursión para esto. 
+
+function fibonacci_rec(n){
+    if(n==0|n==1){
+        return n;
+    }
+    return fibonacci_rec(n-1) + fibonacci_rec(n-2);
+}
