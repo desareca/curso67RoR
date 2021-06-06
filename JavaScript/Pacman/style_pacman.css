@@ -1,0 +1,215 @@
+* {
+    /* outline: 1px dotted red; */
+    padding: 0px;
+    margin: 0px;
+}
+
+.container {
+    min-width: 750px;
+    height: 1000px;
+    padding: 2px auto 0px auto;
+    background: black;
+}
+
+.row {
+    line-height: 0;
+}
+
+
+/* Estilos de las paredes */
+
+.wall1 {
+    background-color: black;
+    border-top: 0px;
+    border-bottom: 0px;
+    border-style: solid;
+    border-color: blue;
+    height: 30px;
+    width: 24px;
+    display: inline-block;
+}
+
+.wall2 {
+    background-color: black;
+    border-left: 0px;
+    border-right: 0px;
+    border-style: solid;
+    border-color: blue;
+    height: 24px;
+    width: 30px;
+    display: inline-block;
+}
+
+.wall3 {
+    background-color: black;
+    border-right: 0px;
+    border-bottom: 0px;
+    border-style: solid;
+    border-color: blue;
+    height: 27px;
+    width: 27px;
+    display: inline-block;
+}
+
+.wall4 {
+    background-color: black;
+    border-left: 0px;
+    border-bottom: 0px;
+    border-style: solid;
+    border-color: blue;
+    height: 27px;
+    width: 27px;
+    display: inline-block;
+}
+
+.wall5 {
+    background-color: black;
+    border-left: 2px !important;
+    border-top: 2px !important;
+    border-style: solid;
+    border-color: blue;
+    height: 27px;
+    width: 27px;
+    display: inline-block;
+}
+
+.wall6 {
+    background-color: black;
+    border-right: 2px !important;
+    border-top: 2px !important;
+    border-style: solid;
+    border-color: blue;
+    height: 27px;
+    width: 27px;
+    display: inline-block;
+}
+
+.wall7 {
+    background-color: black;
+    border-right: 2px !important;
+    border-style: solid;
+    border-color: blue;
+    height: 24px;
+    width: 27px;
+    display: inline-block;
+}
+
+.wall8 {
+    background-color: black;
+    border-left: 2px !important;
+    border-style: solid;
+    border-color: blue;
+    height: 24px;
+    width: 27px;
+    display: inline-block;
+}
+
+.wall9 {
+    background-color: black;
+    border-bottom: 2px !important;
+    border-style: solid;
+    border-color: blue;
+    height: 27px;
+    width: 24px;
+    display: inline-block;
+}
+
+.wall10 {
+    background-color: black;
+    border-top: 2px !important;
+    border-style: solid;
+    border-color: blue;
+    height: 27px;
+    width: 24px;
+    display: inline-block;
+}
+
+.wall11 {
+    background-color: black;
+    border-bottom: 2px !important;
+    border-left: 2px !important;
+    border-right: 2px !important;
+    border-style: solid;
+    border-color: blue;
+    height: 27px;
+    width: 30px;
+    display: inline-block;
+}
+
+.wall12 {
+    background-color: black;
+    border-top: 2px !important;
+    border-left: 2px !important;
+    border-right: 2px !important;
+    border-style: solid;
+    border-color: blue;
+    height: 27px;
+    width: 30px;
+    display: inline-block;
+}
+
+.wall13 {
+    background-color: black;
+    border-top: 2px !important;
+    border-bottom: 2px !important;
+    border-right: 2px !important;
+    border-style: solid;
+    border-color: blue;
+    height: 30px;
+    width: 27px;
+    display: inline-block;
+}
+
+.wall14 {
+    background-color: black;
+    border-top: 2px !important;
+    border-bottom: 2px !important;
+    border-left: 2px !important;
+    border-style: solid;
+    border-color: blue;
+    height: 30px;
+    width: 27px;
+    display: inline-block;
+}
+
+
+/* Estilos del fondo */
+
+.blank {
+    background-color: #222222;
+    height: 30px;
+    width: 30px;
+    display: inline-block;
+}
+
+.ball {
+    background-color: #222222;
+    height: 30px;
+    width: 30px;
+    display: inline-block;
+    background-image: url('bola.png');
+    background-size: contain;
+}
+
+.cherry {
+    background-color: #222222;
+    height: 30px;
+    width: 30px;
+    display: inline-block;
+    background-image: url('cereza.png');
+    background-size: contain;
+}
+
+
+/* Participantes */
+
+#pacman {
+    /* background-color: #222222; */
+    height: 26px;
+    width: 26px;
+    margin: auto;
+    display: inline-block;
+    background-size: contain;
+    position: absolute;
+    margin: 2px 0px 0px 2px;
+}
