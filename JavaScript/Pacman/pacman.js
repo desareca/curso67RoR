@@ -64,6 +64,7 @@ for (var row = 0; row < rowWorld; row++) {
         }
     }
 }
+var max_points = 50 * c_cherry + 10 * c_ball;
 
 // ASIGNACION DE VIDAS INICIAL DE PACMAN
 var life_pacman = 3;
@@ -90,13 +91,13 @@ function countFood() {
 function drawWorld() {
     var output = "";
     var ln = "";
-    if (life_pacman > 0 || countFood() >= (50 * c_cherry + 10 * c_ball)) { //ASIGNA VIDA DE PACMAN A VARIABLE ln
-        if (countFood() < (50 * c_cherry + 10 * c_ball)) {
+    if (life_pacman > 0 || countFood() >= max_points) { //ASIGNA VIDA DE PACMAN A VARIABLE ln
+        if (countFood() < max_points) {
             for (var im = 1; im <= life_pacman; im++) {
                 ln = "<img src='pacman-1.gif' style='width: 28px; heigth: 28px; vertical-align: middle;'>" + ln;
             }
         }
-        if (countFood() >= (50 * c_cherry + 10 * c_ball)) {
+        if (countFood() >= max_points) {
             ln = "WIN!!!"
         }
     } else { // SI VIDA <= 0, ASIGNA "GAME OVER!" A ln
@@ -155,7 +156,7 @@ var line_pumky = {
 
 
 function movePumpky() {
-    if (life_pacman > 0 && countFood() < (50 * c_cherry + 10 * c_ball)) {
+    if (life_pacman > 0 && countFood() < max_points) {
         if (move_ini < 12) {
             //pumpky1.y--;
             pumpky1.y += line_pumky.y[move_ini];
@@ -188,7 +189,7 @@ function pacmanLife() {
 }
 
 document.onkeydown = function(e) {
-    if (life_pacman > 0 && countFood() < (50 * c_cherry + 10 * c_ball)) { // MUEVE A NINJAMAN MIENTRAS TENGA VIDAS
+    if (life_pacman > 0 && countFood() < max_points) { // MUEVE A NINJAMAN MIENTRAS TENGA VIDAS
         if (e.keyCode == 37) { // LEFT
             direction = 2;
             if (world[pacman.y][pacman.x - 1] < 86) {
