@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1. Tamaño Grande - Dado un array, escribe una función que cambie todos los números positivos en él, por el string “big”.
+        // Ejemplo: grande([-1,3,5,-5]) devuelve [-1, “big”, “big”, -5].
+
+        function grande(x) {
+            for (var i = 0; i < x.length; i++) {
+                if (x[i] > 0) {
+                    x[i] = 'big';
+                }
+            }
+            return x;
+        }
+
+        grande([-1, 3, 5, -5]);
+        //resp: [-1, "big", "big", -5]
+
+
+        // 2. Imprime (print) el menor, devuelve (return) el mayor - Crea una función que tome un array de números. La función debería
+        // imprimir (print) el menor valor del array, y devolver (return) el mayor. 
+
+        function minMax(x) {
+            var arr = [x[0], x[0]]; //arreglo con [mayor, menor]
+            for (var i = 0; i < x.length; i++) {
+                if (arr[0] < x[i]) { //calcula mayor
+                    arr[0] = x[i];
+                }
+                if (arr[1] > x[i]) { //calcula menor
+                    arr[1] = x[i];
+                }
+            }
+            console.log(arr[1]); //imprime menor
+            return arr[0]; //retorna mayor
+        }
+
+        minMax([1, 4, 6, 3, 5, 6, 3]);
+        //resp: 1 (devuelve 6)
+
+
+        // 3. Imprime (print) uno, devuelve (return) otro- Crea una función para un array de números. La función debería imprimir (print) el penúltimo valor
+        // y devolver (return) el primer valor impar.
+
+        function imparArrayPenultimo(x) {
+            var arrImpar = []; //array vacio para guardar impares
+            for (var i = 0; i < x.length; i++) {
+                if (x[i] % 2 != 0) { //filtra impares
+                    arrImpar.push(x[i]);
+                }
+            }
+            console.log(x[x.length - 2]); //imprime penultimo
+            return (arrImpar[0]); //devuelve primer impar
+        }
+
+        imparArrayPenultimo([1, 4, 6, 3, 5, 6, 3]);
+        //resp: 6 (devuelve 1)
+
+
+        // 4. Doble Visión - Dado un array, crea una función que devuelva un nuevo array donde cada valor se duplique. Entonces, doble([1,2,3]) 
+        //debiera devolver [2, 4, 6] sin cambiar el array original. 
+
+        function doble(x) {
+            var arr = x; //crea nuevo array
+            for (var i = 0; i < x.length; i++) {
+                arr[i] = 2 * x[i]; //multiplica por 2 cada elemento del array original y lo guarda en el nuevo array
+            }
+            return (arr);
+        }
+
+        doble([1, 2, 3]);
+        //resp: [2, 4, 6]
+
+
+        // 5. Contar Positivos -  Dado un array de números, crea una función para reemplazar el último valor con el número de valores positivos
+        // encontrados en el array. Ejemplo, contarPositivos([-1,1,1,1]) cambia el array original y devuelve [-1,1,1,3].
+
+        function contarPositivos(x) {
+            var ac = 0; //contador
+            for (var i = 0; i < x.length; i++) {
+                if (x[i] > 0) { //filtra positivos
+                    ac++; //cuenta
+                }
+            }
+            x[x.length - 1] = ac; //reemplaza ultimo valor con la cuenta
+            return x;
+        }
+
+        contarPositivos([-1, 1, 1, 1]);
+        //resp: [-1,1,1,3]
+
+
+        //6. Pares e Impares - Crea una función que acepte un array. Cada vez que ese array tenga 3 valores impares seguidos, imprime (print) “¡Qué imparcial!”, 
+        //y cada vez que tenga 3 pares seguidos, imprime (print) “¡Es para bien!”.
+
+        function parImpar(x) {
+            var par = 0; // contador de pares
+            var impar = 0; // contador de impares
+            for (var i = 0; i < x.length; i++) {
+                if (x[i] % 2 != 0) { //detecta impar
+                    impar++;
+                    if (impar >= 3) {
+                        console.log('¡Qué imparcial!');
+                        break;
+                    }
+                }
+                if (x[i] % 2 == 0) { //detecta par
+                    par++;
+                    if (par >= 3) {
+                        console.log('¡Es para bien!');
+                        break;
+                    }
+                }
+            }
+        }
+
+        parImpar([-1, 1, 2, -4, 11, 1]);
+        //resp: ¡Qué imparcial!
+
+        parImpar([-1, 1, 2, -4, 12, 1]);
+        //resp: ¡Es para bien!
+
+
+
+        //7. Incrementa los Segundos - Dado un array de números llamado arr, suma 1 a los elementos, específicamente a aquellos cuyo índice
+        //es impar(arr[1], arr[3], arr[5], etc). Luego, imprime(console.log) cada valor del array y devuelve el arreglo arr.
+        function Impares(arr) {
+            for (let i = 0; i < arr.length; i++) {
+                if (i % 2 != 0) { //filtra impares
+                    arr[i]++;
+                }
+                console.log(arr[i]); // imprime cada valor del array
+            }
+            return arr;
+        }
+
+        Impares([2, 2, 2, 2, 2])
+            //resp: 2, 3, 2, 3, 2 (devuelve [2, 3, 2, 3, 2])
+
+
+
+        //8 - Longitudes previas - Pasado un array(similar a decir‘ tomado un array’ o‘ dado un array’) que contiene strings,
+        //    reemplaza cada string con un número de acuerdo cantidad de letras(longitud) del string anterior.Por ejemplo,
+        //    longitudesPrevias([“programar”, “dojo”, “genial”]) debería devolver[“programar”, 9, 4].Pista: ¿For loops solo puede ir hacia adelante ?
+
+        //for (let i = 30; i > 0; i--) {// for inverso
+        //    console.log(i)
+        //}
+
+        function longitudesPrevias(array) {
+            let stringAnterior = [array[0]]; //Array temporal con el primer string
+            for (let i = 0; i < array.length - 1; i++) {
+                stringAnterior.push(array[i].length); // rellena con el numero de string
+            }
+            array = stringAnterior; // reemplaza array
+            return array;
+        }
+        longitudesPrevias(['programar', 'dojo', 'genial']);
+        //resp: [“programar”, 9, 4]
+
+
+
+
+        //9 - Agrega Siete - Construye una función que acepte un array.Devuelve un nuevo array con todos los valores del original,
+        //    pero sumando 7 a cada uno.No alteres el array original.Por ejemplo, agregaSiete([1, 2, 3) debería devolver[8, 9, 10] en un nuevo array.
+
+        function agregaSiete(array) {
+            let arrayCero = []; // array nuevo
+            for (let i = 0; i < array.length; i++) {
+                arrayCero[i] = array[i] + 7; // suma 7
+            }
+            return arrayCero;
+        }
+        agregaSiete([1, 2, 3]);
+        //resp: [8, 9, 10]
+
+
+
+        //10 - Array Inverso - Dado un array, escribe una función que invierte sus valores en el lugar.
+        //Ejemplo: invertir([3, 1, 6, 4, 2)) devuelve el mismo array pero con sus valores al revés, es decir[2, 4, 6, 1, 3].
+        //Haz esto sin crear un array temporal vacío.(Pista: necesitarás intercambiar(swap) valores).
+
+        //a - 5 elementos, comenzamos posicion 0. 
+        //b - tomamos valor posicion i = 0 y lo guardamos en una var.
+        //c - tomamos valor posicion(5 - 1) - (i = 0) y lo guardamos en posicion i = 0. 
+        //d - tomamos valor var y lo guardamos en posicion(5 - 1) - (i = 0).
+        //e - incrementamos a posicion i = 1. f - tomamos valor posicion i = 1 y lo guardamos en una var.
+        //g - tomamos valor posicion(5 - 1) - (i = 1) y lo guardamos en posicion i = 1. 
+        //h - tomamos valor var y lo guardamos en posicion(5 - 1) - (i = 1).
+
+
+        function invertir(array) {
+            let z = 0; //variable temporal
+            for (let i = 0; i < 0.5 * array.length; i++) { //recorre medio array
+                z = array[i];
+                array[i] = array[array.length - 1 - i];
+                array[array.length - 1 - i] = z;
+            }
+            return array;
+        }
+
+        invertir([3, 1, 6, 4, 2])
+            //resp: [2, 4, 6, 1, 3]
+
+
+        //Version recorriendo el array entero (para explicar funcionamiento)
+        //Acá si se crea un array temporal, pero con el fin de comparar
+        //El codigo se interrumpe si el array temporal (recorrido a la inversa) es igual al array original
+        function invertir2(array) {
+            let z = 0; // variable temporal
+            let sum = 0; // suma de la comparacion de arrays
+            let array2 = array; // array temporal
+            for (let i = 0; i < array.length; i++) {
+                // hace lo mismo que el de arriba
+                z = array[i];
+                array[i] = array[array.length - 1 - i];
+                array[array.length - 1 - i] = z;
+                // compara posiciones a arrays
+                for (let j = 0; j < array.length; j++) {
+                    sum += array2[array2.length - 1 - i] == array[i];
+                }
+                if (sum == array.length) { //finaliza si todas las comparaciones de posiciones son correctas
+                    return array;
+                }
+            }
+            return array;
+        }
+
+        invertir2([3, 1, 6, 4, 2])
+            //resp: [2, 4, 6, 1, 3]
+
+
+        //11. Perspectiva: Negativa - Dado un array crear y devuelve uno nuevo que contenga todos los valores del array original, 
+        //pero negativos (no simplemente multiplicando por -1). Dado [1,-3,5], devuelve [-1,-3,-5].
+
+        function allNeg(x) {
+            let arr = x; //arreglo nuevo
+            for (let i = 0; i < x.length; i++) {
+                if (x[i] > 0) { //detecta positivos
+                    arr[i] = -x[i];
+                }
+            }
+            return (arr);
+        }
+        allNeg([1, -3, 5]);
+        //resp: [-1,-3,-5]
+
+
+
+        //12. Siempre hambriento - Crea una función que acepte un array e imprima (print) “yummy” cada vez que alguno de los valores sea “comida”. 
+        //Si ningún valor es “comida”, entonces imprime “tengo hambre” una vez. 
+
+        function hambriento(x) {
+            var cont = 0; //contador
+            for (var i = 0; i < x.length; i++) {
+                if (x[i] == 'comida') { //detecta comida
+                    console.log('yummy');
+                    cont++; //cuenta 'comida'
+                }
+            }
+            if (cont == 0) { // si no hay 'comida'
+                console.log('tengo hambre');
+            }
+        }
+
+        hambriento(["", "comida", "", "comida", "comida"]);
+        //resp: "yummy","yummy","yummy"
+
+        hambriento(["", "", "", "", ""]);
+        //resp: "tengo hambre"
+
+
+
+
+        //13. Cambiar hacia el centro -  Dado un array, cambia el primer y último valor, el tercero con el ante penútimo, etc. 
+        //Ejemplo: cambiaHaciaElCentro([true, 42, “Ada”, 2, “pizza”]) cambia el array a [“pizza¨, 42, “Ada”, 2, true]. 
+        //cambiaHaciaElCentro([1,2,3,4,5,6]) cambia el array a [6,2,4,3,5,1]. No es necesario devolver (return) el array esta vez. 
+
+        function cambiaHaciaElCentro(x) {
+            var z = 0;
+            for (var i = 0; i < x.length * 0.5; i++) {
+                if (i % 2 == 0) {
+                    z = x[x.length - i - 1];
+                    x[x.length - i - 1] = x[i];
+                    x[i] = z;
+                }
+            }
+            console.log(x);
+        }
+
+        cambiaHaciaElCentro([1, 2, 3, 4, 5, 6]);
+        // resp: [6, 2, 4, 3, 5, 1]
+
+        cambiaHaciaElCentro([true, 42, 'Ada', 2, 'pizza']);
+        // resp: ["pizza", 42, "Ada", 2, true]
+
+
+
+        //14. Escala el Array - Dado un array arr y un número num, multiplica todos los valores en el array arr por el número num, y devuelve el 
+        //array arr modificado. Por ejemplo, escalaArray([1,2,3], 3] debería devolver [3,6,9].
+
+        function escalaArray(arr, num) {
+            for (var i = 0; i < arr.length; i++) {
+                arr[i] = arr[i] * num
+            }
+            return (arr);
+        }
+
+        escalaArray([1, 2, 3], 3);
+        //resp: [3, 6, 9]
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Crea una función Fib(n) que devuelve el enésimo número Fibonacci. Usa recursión para esto. 
+        function fibonacci_rec(n) {
+            if (n == 0 | n == 1) {
+                return n;
+            }
+            return fibonacci_rec(n - 1) + fibonacci_rec(n - 2);
+        }
+
+        fibonacci_rec(10);
+        //resp: 55
+    </script>
+
+</body>
+
+</html>
