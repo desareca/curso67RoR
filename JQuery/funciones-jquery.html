@@ -31,6 +31,51 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
+            // Hide & Show
+            var cl_hs = true;
+            $("#btn-hideshow").click(function() {
+                $('#btn-hideshow').css('border-radius', '20px');
+                if (cl_hs) {
+                    $("#txt-hideshow > span").hide();
+                    $('#btn-hideshow').css('background-color', 'rgb(255, 127, 42)');
+                    $('#btn-hideshow').css('color', 'white');
+                    $('#btn-hideshow > span').text("Show");
+                    cl_hs = !cl_hs;
+                } else if (!cl_hs) {
+                    $("#txt-hideshow > span").show();
+                    $('#btn-hideshow').css('background-color', 'rgb(173, 255, 47)');
+                    $('#btn-hideshow').css('color', 'black');
+                    $('#btn-hideshow > span').text("Hide");
+                    cl_hs = !cl_hs;
+                }
+            });
+            // Toggle
+            $("#btn-toggle").click(function() {
+                $("#txt-toggle > span").toggle("slow");
+                $('#btn-toggle').css('border-radius', '20px');
+                if ($('#btn-toggle').css('background-color') == 'rgba(0, 0, 0, 0)') {
+                    $('#btn-toggle').css('background-color', 'rgba(0, 0, 255, 0.7)');
+                    $('#btn-toggle').css('color', 'white');
+                }
+                if ($('#btn-toggle').css('background-color') == 'rgba(0, 0, 255, 0.7)') {
+                    $('#btn-toggle').css('background-color', 'rgba(0, 0, 0, 0)');
+                    $('#btn-toggle').css('color', 'black');
+                }
+            });
+            // Slide Toggle
+            $("#btn-slidetoogle").click(function() {
+                $("#txt-slidetoogle").slideToggle("slow");
+                $('#btn-slidetoogle').css('border-radius', '20px');
+                if ($('#btn-slidetoogle').css('background-color') == 'rgba(0, 0, 0, 0)') {
+                    $('#btn-slidetoogle').css('background-color', 'rgb(20, 111, 117)');
+                    $('#btn-slidetoogle').css('color', 'white');
+                }
+                if ($('#btn-slidetoogle').css('background-color') == 'rgb(20, 111, 117)') {
+                    $('#btn-slidetoogle').css('background-color', 'rgba(0, 0, 0, 0)');
+                    $('#btn-slidetoogle').css('color', 'black');
+                }
+            });
+            // Add class
             var cl_add = 0;
             $("#btn-addclass").click(function() {
                 $('#txt-addclass span').addClass('red');
@@ -42,18 +87,8 @@
                     cl_add++;
                 }
             });
-            $("#btn-slidetoogle").click(function() {
-                $("#txt-slidetoogle").toggle("slow");
-                $('#btn-slidetoogle').css('border-radius', '20px');
-                if ($('#btn-slidetoogle').css('background-color') == 'rgba(0, 0, 0, 0)') {
-                    $('#btn-slidetoogle').css('background-color', 'rgba(0, 0, 255, 0.7)');
-                    $('#btn-slidetoogle').css('color', 'white');
-                }
-                if ($('#btn-slidetoogle').css('background-color') == 'rgba(0, 0, 255, 0.7)') {
-                    $('#btn-slidetoogle').css('background-color', 'rgba(0, 0, 0, 0)');
-                    $('#btn-slidetoogle').css('color', 'black');
-                }
-            });
+
+            // Append
             var cl_app = 0;
             $("#btn-append").click(function() {
                 $('#btn-append').css('border-radius', '20px');
@@ -70,8 +105,17 @@
                     cl_app++;
                 }
             });
+
+
+
         });
     </script>
+
+    <style>
+        .dd {
+            color: rgb(20, 111, 117);
+        }
+    </style>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -80,41 +124,53 @@
 
 <body>
     <div class="container">
-        <!-- AddClass!  -->
+        <!-- Hide & Show! -->
         <div class="row mt-3">
-            <h1 class="col-1 mx-auto">AddClass!</h1>
+            <h1 class="col-1 mx-auto" style="min-width: fit-content;">Hide & Show!</h1>
         </div>
-        <div class="row pb-3 align-center" style="border-bottom: 3px solid black;">
-            <button id="btn-addclass" type="button" class="col-2 mt-0px mb-auto btn btn-sm border-dark shadow-lg">AddClass!</button>
-            <p id="txt-addclass" class="col">Clickea el botón y agrega la clase <span>red</span> en este párrafo.</p>
+        <div class="row pb-3" style="border-bottom: 3px solid black;">
+            <button id="btn-hideshow" type="button" class="col-2 mt-0px mb-auto btn btn-sm border-dark shadow-lg"><span>Hide & Show!</span></button>
+            <p id="txt-hideshow" class="col"> Haz click para esconder y motrar el text: <br> <br> <span> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+            </p>
+        </div>
+        <!-- Toggle! -->
+        <div class="row mt-3">
+            <h1 class="col-1 mx-auto" style="min-width: fit-content;">Toogle!</h1>
+        </div>
+        <div class="row pb-3" style="border-bottom: 3px solid black;">
+            <button id="btn-toggle" type="button" class="col-2 mt-0px mb-auto btn btn-sm border-dark shadow-lg">Toogle!</button>
+            <p id="txt-toggle" class="col"> Haz click para esconder y motrar el text: <br> <br> <span> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+            </p>
         </div>
         <!-- SlideToggle! -->
         <div class="row mt-3">
-            <h1 class="col-1 mx-auto">SlideToggle!</h1>
+            <h1 class="col-1 mx-auto" style="min-width: fit-content;">SlideToggle!</h1>
         </div>
         <div class="row pb-3" style="border-bottom: 3px solid black;">
             <button id="btn-slidetoogle" type="button" class="col-2 mt-0px mb-auto btn btn-sm border-dark shadow-lg">SlideToggle!</button>
             <p id="txt-slidetoogle" class="col">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat. Quis aute iure
                 reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         </div>
+        <!-- AddClass!  -->
+        <div class="row mt-3">
+            <h1 class="col-1 mx-auto" style="min-width: fit-content;">AddClass!</h1>
+        </div>
+        <div class="row pb-3 align-center" style="border-bottom: 3px solid black;">
+            <button id="btn-addclass" type="button" class="col-2 mt-0px mb-auto btn btn-sm border-dark shadow-lg">AddClass!</button>
+            <p id="txt-addclass" class="col">Clickea el botón y agrega la clase <span>red</span> en este párrafo.</p>
+        </div>
         <!-- Append! -->
         <div class="row mt-3">
-            <h1 class="col-1 mx-auto">Append!</h1>
+            <h1 class="col-1 mx-auto" style="min-width: fit-content;">Append!</h1>
         </div>
         <div class="row pb-3" style="border-bottom: 3px solid black;">
             <button id="btn-append" type="button" class="col-2 mt-0px mb-auto btn btn-sm border-dark shadow-lg">Append!</button>
             <p id="txt-append" class="col"> Haz click para leer lo que está escondido (sólo 3 veces): <br> <br>
             </p>
         </div>
-        <!-- Hide & Show! -->
-        <div class="row mt-3">
-            <h1 class="col-1 mx-auto" style="min-width: 300px;">Hide & Show!</h1>
-        </div>
-        <div class="row pb-3" style="border-bottom: 3px solid black;">
-            <button id="btn-append" type="button" class="col-2 mt-0px mb-auto btn btn-sm border-dark shadow-lg">Hide & Show!</button>
-            <p id="txt-hideshow" class="col"> Haz click para esconder y motrar el texto: <br> <br>
-            </p>
-        </div>
+
 
     </div>
 
