@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>:: Funciones jQuery ::</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <style>
+        .fondo {
+            background-color: rgb(246, 240, 252);
+            border-radius: 30px;
+        }
+        
+        .red {
+            color: rgb(253, 120, 120);
+            font-style: italic;
+            font-weight: bolder;
+        }
+        
+        .cyan {
+            color: rgb(27, 228, 201);
+            font-style: italic;
+            font-weight: bolder;
+        }
+        
+        .magenta {
+            color: rgb(181, 27, 228);
+            font-style: italic;
+            font-weight: bolder;
+            font-size: 22px;
+        }
+    </style>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // Hide & Show
+            var cl_hs = true;
+            $("#btn-hideshow").click(function() {
+                $('#btn-hideshow').css('border-radius', '20px');
+                if (cl_hs) {
+                    $("#txt-hideshow > span").hide();
+                    $('#btn-hideshow').css('background-color', 'rgb(255, 127, 42)');
+                    $('#btn-hideshow').css('color', 'white');
+                    $('#btn-hideshow > span').text("Show");
+                    cl_hs = !cl_hs;
+                } else if (!cl_hs) {
+                    $("#txt-hideshow > span").show();
+                    $('#btn-hideshow').css('background-color', 'rgb(173, 255, 47)');
+                    $('#btn-hideshow').css('color', 'black');
+                    $('#btn-hideshow > span').text("Hide");
+                    cl_hs = !cl_hs;
+                }
+            });
+            // Toggle
+            var cl_tog = true;
+            $("#btn-toggle").click(function() {
+                $("#txt-toggle > span").toggle("slow");
+                $('#btn-toggle').css('border-radius', '20px');
+                if (cl_tog) {
+                    $('#btn-toggle').css('background-color', 'rgba(0, 0, 255, 0.7)');
+                    $('#btn-toggle').css('color', 'white');
+                    cl_tog = !cl_tog;
+                } else if (!cl_tog) {
+                    $('#btn-toggle').css('background-color', 'rgba(210, 231, 88, 0.788)');
+                    $('#btn-toggle').css('color', 'black');
+                    cl_tog = !cl_tog;
+                }
+            });
+            // slideDown & slideUp
+            var cl_sldu = true;
+            $("#btn-slice").click(function() {
+                $('#btn-slice').css('border-radius', '20px');
+                if (cl_sldu) {
+                    $("#txt-slice > span").slideUp();
+                    $('#btn-slice').css('background-color', 'rgb(255, 127, 42)');
+                    $('#btn-slice').css('color', 'white');
+                    $('#btn-slice > span').text("Slice Down");
+                    cl_sldu = !cl_sldu;
+                } else if (!cl_sldu) {
+                    $("#txt-slice > span").slideDown();
+                    $('#btn-slice').css('background-color', 'rgb(173, 255, 47)');
+                    $('#btn-slice').css('color', 'black');
+                    $('#btn-slice > span').text("Slice Up");
+                    cl_sldu = !cl_sldu;
+                }
+            });
+            // Slide Toggle
+            var cl_stog = true;
+            $("#btn-slidetoogle").click(function() {
+                $("#txt-slidetoogle > span").toggle("slow");
+                $('#btn-slidetoogle').css('border-radius', '20px');
+                if (cl_stog) {
+                    $('#btn-slidetoogle').css('background-color', 'rgba(0, 0, 255, 0.7)');
+                    $('#btn-slidetoogle').css('color', 'white');
+                    cl_stog = !cl_stog;
+                } else if (!cl_stog) {
+                    $('#btn-slidetoogle').css('background-color', 'rgba(210, 231, 88, 0.788)');
+                    $('#btn-slidetoogle').css('color', 'black');
+                    cl_stog = !cl_stog;
+                }
+            });
+
+            // FadeIn & FadeOut
+            var cl_fade = true;
+            $("#btn-fade").click(function() {
+                $('#btn-fade').css('border-radius', '20px');
+                if (cl_fade) {
+                    $("#txt-fade > span").fadeOut();
+                    $('#btn-fade').css('background-color', 'rgb(255, 127, 42)');
+                    $('#btn-fade').css('color', 'white');
+                    $('#btn-fade > span').text("Fade Out");
+                    cl_fade = !cl_fade;
+                } else if (!cl_fade) {
+                    $("#txt-fade > span").fadeIn();
+                    $('#btn-fade').css('background-color', 'rgb(173, 255, 47)');
+                    $('#btn-fade').css('color', 'black');
+                    $('#btn-fade > span').text("Fade In");
+                    cl_fade = !cl_fade;
+                }
+            });
+            // Add class
+            var cl_add = 0;
+            $("#btn-addclass").click(function() {
+                if (cl_add == 0) {
+                    $("#txt-addclass").append("<p><br>La clase <span class='red'>red</span> cambia el color, estilo y grosor de un texto.</p>");
+                    cl_add++;
+                }
+                $('#txt-addclass span').addClass('red');
+                $('#btn-addclass').css('background-color', 'rgb(253, 120, 120)');
+                $('#btn-addclass').css('color', 'white');
+                $('#btn-addclass').css('border-radius', '20px');
+            });
+            // Append & Prepend
+            var cl_app = 0;
+            $("#btn-append").click(function() {
+                $('#btn-append').css('border-radius', '20px');
+                if (cl_app <= 3) {
+                    if (cl_app < 3) {
+                        $("#txt-append").append("<p class='cyan'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.</p>");
+                        $('#btn-append').css('background-color', 'rgb(27, 228, 201)');
+                        $('#btn-append').css('color', 'white');
+                    } else {
+                        $("#txt-append").append("<p class='magenta'>Te pasaste...</p>");
+                        $('#btn-append').css('background-color', 'rgb(181, 27, 228)');
+                        $('#btn-append').css('color', 'white');
+                    }
+                    cl_app++;
+                }
+            });
+            var cl_pre = 0;
+            $("#btn-prepend").click(function() {
+                $('#btn-prepend').css('border-radius', '20px');
+                if (cl_pre <= 3) {
+                    if (cl_pre < 3) {
+                        $("#txt-append").prepend("<p class='cyan'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.</p>");
+                        $('#btn-prepend').css('background-color', 'rgb(27, 228, 201)');
+                        $('#btn-prepend').css('color', 'white');
+                    } else {
+                        $("#txt-append").prepend("<p class='magenta'>Te pasaste...</p>");
+                        $('#btn-prepend').css('background-color', 'rgb(181, 27, 228)');
+                        $('#btn-prepend').css('color', 'white');
+                    }
+                    cl_pre++;
+                }
+            });
+
+            // After & Before
+            var cl_af = 0;
+            $("#btn-after").click(function() {
+                $('#btn-after').css('border-radius', '20px');
+                if (cl_af <= 2) {
+                    if (cl_af < 2) {
+                        $("#txt-after").after("<p class='cyan col'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.</p>");
+                        $('#btn-after').css('background-color', 'rgb(27, 228, 201)');
+                        $('#btn-after').css('color', 'white');
+                    } else {
+                        $("#txt-after").after("<p class='magenta col'>Te pasaste...</p>");
+                        $('#btn-after').css('background-color', 'rgb(181, 27, 228)');
+                        $('#btn-after').css('color', 'white');
+                    }
+                    cl_af++;
+                }
+            });
+            var cl_bef = 0;
+            $("#btn-before").click(function() {
+                $('#btn-before').css('border-radius', '20px');
+                if (cl_bef <= 2) {
+                    if (cl_bef < 2) {
+                        $("#txt-after").before("<p class='cyan col'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.</p>");
+                        $('#btn-before').css('background-color', 'rgb(27, 228, 201)');
+                        $('#btn-before').css('color', 'white');
+                    } else {
+                        $("#txt-after").before("<p class='magenta col'>Te pasaste...</p>");
+                        $('#btn-before').css('background-color', 'rgb(181, 27, 228)');
+                        $('#btn-before').css('color', 'white');
+                    }
+                    cl_bef++;
+                }
+            });
+            // Html
+            var cl_html = 0;
+            $("#btn-html").click(function() {
+                if (cl_html == 0) {
+                    $("#html-mod").html("<img src='perro.gif' alt='perro fractal' style='width: auto;heigth: auto'>");
+                    cl_html++;
+                }
+                $('#btn-html').css('background-color', 'rgb(253, 120, 120)');
+                $('#btn-html').css('color', 'white');
+                $('#btn-html').css('border-radius', '20px');
+            });
+            // Atrr
+            var cl_add = 0;
+            $("#btn-atrr").click(function() {
+                if (cl_add == 0) {
+                    $("#txt-atrr").append("<p><br>Modifica el atributo 'style', asignando el valor 'color: rgb(255, 0, 0)'.</p>");
+                    cl_add++;
+                }
+                $('#txt-atrr').attr('style', 'color: rgb(255, 0, 0)');
+                $('#btn-atrr').css('background-color', 'rgb(253, 120, 120)');
+                $('#btn-atrr').css('color', 'white');
+                $('#btn-atrr').css('border-radius', '20px');
+            });
+
+            // Val
+            $("#btn-op1,#btn-op2,#btn-op3,#btn-op4,#btn-op5").click(function() {
+                var text = $(this).text();
+                $(this).css('background-color', 'rgb(253, 120, 120)');
+                $(this).css('color', 'white');
+                $(this).css('border-radius', '20px');
+                $("#txt-op").html("Ha seleccionado: <span class='red'>" + text + "</span>");
+                $('#btn-addclass').css('background-color', 'rgb(253, 120, 120)');
+            });
+
+
+
+        });
+    </script>
+
+    <style>
+        .dd {
+            color: rgba(210, 231, 88, 0.788);
+        }
+    </style>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="container mt-3 pt-3 px-5 fondo">
+        <div class="row mt-3" style="border-bottom: 3px solid black;">
+            <h1 class="col-1 mx-auto" style="min-width: fit-content;">Probando funciones básicas de jQuery</h1>
+            <h5 class="col-1 mx-auto" style="min-width: fit-content;">
+                <br>A continuación probaremos algunas de las funciones más comunes de <span style="font-weight: bolder;">jQuery</span>, para ello clickea cada botón para visualizar que hace. Cuando hagas el click, el botón cambiará de color y sus esquinas
+                se redondearan.
+                <br><br><br>
+            </h5>
+
+        </div>
+        <!-- Hide & Show! -->
+        <div class="row mt-3">
+            <h2 class="col-1 mx-auto" style="min-width: fit-content;">Hide & Show!</h2>
+        </div>
+        <div class="row pb-3" style="border-bottom: 3px solid black;">
+            <button id="btn-hideshow" type="button" class="col-2 mt-0px mb-auto btn btn-sm border-dark shadow-lg"><span>Hide & Show!</span></button>
+            <p id="txt-hideshow" class="col"> Haz click para esconder y motrar el texto: <br> <br> <span> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+            </p>
+        </div>
+        <!-- Toggle! -->
+        <div class="row mt-3">
+            <h2 class="col-1 mx-auto" style="min-width: fit-content;">Toogle!</h2>
+        </div>
+        <div class="row pb-3" style="border-bottom: 3px solid black;">
+            <button id="btn-toggle" type="button" class="col-2 mt-0px mb-auto btn btn-sm border-dark shadow-lg">Toogle!</button>
+            <p id="txt-toggle" class="col"> Haz click para esconder y motrar el texto: <br> <br> <span> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+            </p>
+        </div>
+        <!-- SliceDown & SliceUp! -->
+        <div class="row mt-3">
+            <h2 class="col-1 mx-auto" style="min-width: fit-content;">SliceDown & SliceUp!</h2>
+        </div>
+        <div class="row pb-3" style="border-bottom: 3px solid black;">
+            <button id="btn-slice" type="button" class="col-2 mt-0px mb-auto btn btn-sm border-dark shadow-lg"><span>SliceDown & SliceUp!</span></button>
+            <p id="txt-slice" class="col"> Haz click para esconder y motrar el texto: <br> <br> <span> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+            </p>
+        </div>
+        <!-- SlideToggle! -->
+        <div class="row mt-3">
+            <h2 class="col-1 mx-auto" style="min-width: fit-content;">SlideToggle!</h2>
+        </div>
+        <div class="row pb-3" style="border-bottom: 3px solid black;">
+            <button id="btn-slidetoogle" type="button" class="col-2 mt-0px mb-auto btn btn-sm border-dark shadow-lg">SlideToggle!</button>
+            <p id="txt-slidetoogle" class="col"> Haz click para esconder y motrar el texto: <br> <br> <span> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+            </p>
+        </div>
+        <!-- FadeIn & FadeOut! -->
+        <div class="row mt-3">
+            <h2 class="col-1 mx-auto" style="min-width: fit-content;">FadeIn & FadeOut!</h2>
+        </div>
+        <div class="row pb-3" style="border-bottom: 3px solid black;">
+            <button id="btn-fade" type="button" class="col-2 mt-0px mb-auto btn btn-sm border-dark shadow-lg"><span>FadeIn & FadeOut!</span></button>
+            <p id="txt-fade" class="col"> Haz click para esconder y motrar el texto: <br> <br> <span> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                ut aliquid ex ea commodi consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+            </p>
+        </div>
+        <!-- AddClass!  -->
+        <div class="row mt-3">
+            <h2 class="col-1 mx-auto" style="min-width: fit-content;">AddClass!</h2>
+        </div>
+        <div class="row pb-3 align-center" style="border-bottom: 3px solid black;">
+            <button id="btn-addclass" type="button" class="col-2 mt-0 mb-auto btn btn-sm border-dark shadow-lg">AddClass!</button>
+            <p id="txt-addclass" class="col">Clickea el botón y agrega la clase <span>red</span> en este párrafo.</p>
+        </div>
+        <!-- Append & Prepend! -->
+        <div class="row mt-3">
+            <h2 class="col-1 mx-auto" style="min-width: fit-content;">Append & Prepend!</h2>
+        </div>
+        <div class="row pb-3" style="border-bottom: 3px solid black;">
+            <div class="col-2">
+                <button id="btn-append" type="button" class="row col-12 d-block mb-3 btn btn-sm border-dark shadow-lg">Append!</button>
+                <button id="btn-prepend" type="button" class="row col-12 d-block btn btn-sm border-dark shadow-lg">Prepend!</button>
+            </div>
+            <p id="txt-append" class="col">Haz click para leer lo que está escondido (arriba y abajo, sólo 3 veces cada uno): <br><br>
+            </p>
+        </div>
+        <!-- After & Before! -->
+        <div class="row mt-3">
+            <h2 class="col-1 mx-auto" style="min-width: fit-content;">After & Before!</h2>
+        </div>
+        <div class="row pb-3" style="border-bottom: 3px solid black;">
+            <div class="col-2">
+                <button id="btn-after" type="button" class="row col-12 d-block mb-3 btn btn-sm border-dark shadow-lg">After!</button>
+                <button id="btn-before" type="button" class="row col-12 d-block btn btn-sm border-dark shadow-lg">Before!</button>
+            </div>
+            <p id="txt-after" class="col">Haz click para leer lo que está escondido (arriba y abajo, sólo 2 veces cada uno): <br><br>
+            </p>
+        </div>
+        <!-- Html! -->
+        <div class="row mt-3">
+            <h2 class="col-1 mx-auto" style="min-width: fit-content;">Html!</h2>
+        </div>
+        <div class="row pb-3 align-center" style="border-bottom: 3px solid black;">
+            <button id="btn-html" type="button" class="col-2 mt-0px mb-auto btn btn-sm border-dark shadow-lg">Html!</button>
+            <p id="txt-html" class="col-10">Clickea el botón y agrega una imagen bajo este párrafo.</p>
+            <div id="html-mod" class="col-4 mx-auto d-block"></div>
+        </div>
+
+        <!-- Atrr!  -->
+        <div class="row mt-3">
+            <h2 class="col-1 mx-auto" style="min-width: fit-content;">Atrr!</h2>
+        </div>
+        <div class="row pb-3 align-center" style="border-bottom: 3px solid black;">
+            <button id="btn-atrr" type="button" class="col-2 mt-0 mb-auto btn btn-sm border-dark shadow-lg">Atrr!</button>
+            <p id="txt-atrr" class="col">Clickea el botón y veirifca como se modifica algún atributo en este párrafo.</p>
+        </div>
+
+        <!-- Val! -->
+        <div class="row mt-3">
+            <h2 class="col-1 mx-auto" style="min-width: fit-content;">Val!</h2>
+        </div>
+        <div class="row pb-3" style="border-bottom: 3px solid black;">
+            <div class="col-2">
+                <button id="btn-op1" type="button" class="row col-12 d-block mb-2 btn btn-sm border-dark shadow-lg">Opción 1</button>
+                <button id="btn-op2" type="button" class="row col-12 d-block mb-2 btn btn-sm border-dark shadow-lg">Opción 2</button>
+                <button id="btn-op3" type="button" class="row col-12 d-block mb-2 btn btn-sm border-dark shadow-lg">Opción 3</button>
+            </div>
+            <p id="txt-op" class="col"></p>
+        </div>
+
+
+
+
+
+        <div class="row my-3">
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
