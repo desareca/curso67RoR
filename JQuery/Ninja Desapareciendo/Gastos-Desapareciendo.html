@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>:: Gatos Desapareciendo ::</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <style>
+        .container {
+            background-color: rgb(213, 210, 174);
+            border-radius: 40px !important;
+        }
+        
+        .container h1 {
+            color: rgb(128, 126, 104);
+        }
+        
+        .text {
+            font-size: 25px !important;
+            text-align: justify !important;
+            padding: 0px 30px;
+            color: rgb(128, 126, 104);
+        }
+        
+        .btn-outline-primary {
+            color: rgb(128, 126, 104) !important;
+            border-color: rgb(128, 126, 104) !important;
+            font-weight: bolder;
+            border-radius: 10px !important;
+        }
+        
+        .btn-outline-primary:hover,
+        .btn-outline-primary:active,
+        .btn-outline-primary:visited {
+            color: rgb(213, 210, 174) !important;
+            background-color: rgb(128, 126, 104) !important;
+            border-color: rgb(128, 126, 104) !important;
+        }
+    </style>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#in1-1,#in1-2,#in1-3,#in1-4,#in2-1,#in2-2,#in2-3,#in2-4").click(function() {
+                $(this).hide();
+            });
+
+            $("#btn-show").click(function() {
+                $("#in1-1,#in1-2,#in1-3,#in1-4,#in2-1,#in2-2,#in2-3,#in2-4").show();
+            });
+
+        });
+    </script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="container px-5 pt-3">
+        <div class="row mt-3 mb-5 pb-3" style="border-bottom: 1px dotted rgb(128, 126, 104);">
+            <h1 class="col-1 mx-auto mb-5" style="min-width: fit-content;">Gatos desapareciendo!!!</h1>
+            <p class="text"> Los gatos juegan un papel importante para muchas personas y en la cultura en general. Seguro que ves muchos perros por aquí y por allá, pero los gatos simplemente dominan el mundo. ¡Así que hoy quiero honrar a estos felinos y compartir los
+                mejores y mas famosos gatos!
+            </p>
+            <p class="text">Al hacer click en algún &#128049 y desaparecerá ... </p>
+            <p class="text">Para volver a mostrarlos todos haz click en el botón de abajo!!!</p>
+
+        </div>
+        <div class="row pb-2">
+            <input id="in1-1" type="image" class="col-3 p-auto mb-5" alt="" src='images/stormtroopocat.png' data-toggle="tooltip" data-placement="top" title="stormtroopocat"></input>
+            <input id="in1-2" type="image" class="col-3 p-auto mb-5" alt="" src='images/heisencat.png' data-toggle="tooltip" data-placement="top" title="heisencat"></input>
+            <input id="in1-3" type="image" class="col-3 p-auto mb-5" alt="" src='images/cooler.png' data-toggle="tooltip" data-placement="top" title="cooler"></input>
+            <input id="in1-4" type="image" class="col-3 p-auto mb-5" alt="" src='images/ironcat.png' data-toggle="tooltip" data-placement="top" title="ironcat"></input>
+            <input id="in2-1" type="image" class="col-3 p-auto mb-5" alt="" src='images/daftpunk.gif' data-toggle="tooltip" data-placement="top" title="daftpunk"></input>
+            <input id="in2-2" type="image" class="col-3 p-auto mb-5" alt="" src='images/domo-cat.png' data-toggle="tooltip" data-placement="top" title="domo-cat"></input>
+            <input id="in2-3" type="image" class="col-3 p-auto mb-5" alt="" src='images/riddlocat.png' data-toggle="tooltip" data-placement="top" title="riddlocat"></input>
+            <input id="in2-4" type="image" class="col-3 p-auto mb-5" alt="" src='images/oktobercat.png' data-toggle="tooltip" data-placement="top" title="oktobercat"></input>
+        </div>
+
+        <div class="row pb-5">
+            <button id="btn-show" type="button" class="col-2 btn btn-outline-primary btn-lg">Show &#128049</button>
+        </div>
+
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
