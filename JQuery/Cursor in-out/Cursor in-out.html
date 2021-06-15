@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>:: Gatos Desapareciendo ::</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <style>
+        .container {
+            background-color: rgb(213, 210, 174);
+            border-radius: 40px !important;
+        }
+        
+        .container h1 {
+            color: rgb(128, 126, 104);
+            text-align: center !important;
+        }
+        
+        .text {
+            font-size: 25px !important;
+            text-align: center !important;
+            padding: 0px 30px;
+            color: rgb(128, 126, 104);
+        }
+        
+        .btn-outline-primary {
+            color: rgb(128, 126, 104) !important;
+            border-color: rgb(128, 126, 104) !important;
+            font-weight: bolder;
+            border-radius: 10px !important;
+        }
+        
+        .btn-outline-primary:hover,
+        .btn-outline-primary:active,
+        .btn-outline-primary:visited {
+            color: rgb(213, 210, 174) !important;
+            background-color: rgb(128, 126, 104) !important;
+            border-color: rgb(128, 126, 104) !important;
+        }
+    </style>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            $('img').hover(function() {
+                img_temp = $(this).attr('alt-src');
+                $(this).attr('alt-src', $(this).attr('src'));
+                $(this).attr('src', img_temp);
+            }, function() {
+                $(this).attr('src', $(this).attr('alt-src'));
+                $(this).attr('alt-src', img_temp);
+            });
+        });
+    </script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="container px-5 pt-3">
+        <div class="row mt-3 mb-3">
+            <h1 class="col-12 mx-auto mb-3" style="min-width: fit-content;">Gatos Bipolares!!!</h1>
+            <p class="col-9 mx-auto text pb-3" style="border-bottom: 1px dotted rgb(128, 126, 104);">Descubre la personalidad de cada uno de estos &#128049 pasando el ratón sobre ellos</p>
+
+        </div>
+        <div class="row pb-2">
+            <img class="col-3 mb-3" src="images/stormtroopocat.png" alt-src="images/daftpunk.gif" alt="col-0">
+            <img class="col-3 mb-3" src="images/heisencat.png" alt-src="images/domo-cat.png" alt="col-1">
+            <img class="col-3 mb-3" src="images/cooler.png" alt-src="images/riddlocat.png" alt="col-2">
+            <img class="col-3 mb-3" src="images/ironcat.png" alt-src="images/oktobercat.png" alt="col-3">
+        </div>
+
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
