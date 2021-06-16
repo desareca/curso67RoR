@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>:: Pokemon ::</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <style>
+        .container {
+            background-color: rgb(247, 223, 255);
+            border-radius: 40px !important;
+        }
+        
+        .image {
+            min-width: 150px;
+            height: auto;
+            margin: auto !important;
+        }
+    </style>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="container px-5 py-3">
+        <div class="row mt-3 mb-5 pb-3">
+            <img id="logoPok" class="col-4 mx-auto" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1920px-International_Pok%C3%A9mon_logo.svg.png" alt="">
+
+        </div>
+        <div id="pokemons" class="row pb-2 mx-auto"></div>
+    </div>
+
+    <script>
+        function drawPokemon() {
+            var _col = "-2"; // numero de columnas por imagen
+            var _nPok = 150; // numero de pokemon
+            var _link = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/";
+            for (var col = 1; col < _nPok; col++) {
+                out = "<img src='" + _link + col + ".png' class='col" + _col + " p-auto image'>";
+                $('#pokemons').before(out);
+            }
+        }
+        drawPokemon();
+    </script>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
