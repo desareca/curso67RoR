@@ -21,19 +21,53 @@
             margin: auto !important;
         }
         
+        .img-modal {
+            min-width: 90px;
+            width: fit-content !important;
+            height: auto !important;
+            margin: auto !important;
+        }
+        
         .modal {
-            color: rgb(53, 96, 172);
+            color: rgb(22, 78, 173);
         }
         
         .modal-content {
             background-color: rgb(255, 246, 208) !important;
             border-radius: 30px !important;
-            border: 5px solid rgb(53, 96, 172) !important;
+            border: 5px solid rgb(22, 78, 173) !important;
+            min-width: 350px;
+            height: fit-content;
         }
     </style>
 
     <script>
         $(document).ready(function() {
+            // Carga pokemon en pantalla
+            var _col = "-2"; // numero de columnas por imagen
+            var _nPok = 150; // numero de pokemon
+
+            function drawPokemon() {
+                var _link = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/";
+                for (var i = 1; i <= _nPok; i++) {
+                    out = "<input type='image' id='" + i + "' src='" + _link + i + ".png' ";
+                    out += "class='col" + _col + " p-auto image' data-toggle='modal' data-target='.bd-example-modal-sm'>";
+                    $('#pokemons').append(out);
+                }
+            }
+            drawPokemon();
+            /*
+            for (let i = 1; i <= _nPok; i++) {
+                $.get("https://pokeapi.co/api/v2/pokemon/" + i + "/", function(res) {
+                    var out = "<input type='image' id='" + i;
+                    out += "' src='" + res.sprites.front_shiny + "' ";
+                    out += "class='col" + _col + " p-auto image' data-toggle='modal' data-target='.bd-example-modal-sm'>";
+                    $('#pokemons').append(out);
+                }, "json");
+            }
+            */
+
+            // Accion al clickear una imagen
             $('.image').click(function() {
                 var id = $(this).attr("id");
                 $.get("https://pokeapi.co/api/v2/pokemon/" + id + "/", function(res) {
@@ -41,7 +75,8 @@
                     //Nombre
                     html_str += "<h1 class='col-12 mt-3 text-center shadow-lg'>" + res.forms[0].name + "</h1>";
                     //Imagen
-                    html_str += "<img src='" + res.sprites.front_shiny + "' class='col-12 p-auto'>";
+                    html_str += "<img src='" + res.sprites.front_shiny + "' class='col-12 p-auto img-modal'>";
+                    console.log(res.sprites.front_shiny);
                     //Tipo
                     html_str += "<h4 class='col-12 ml-4 shadow-lg'>Types:</h4>";
                     html_str += "<ul>";
@@ -80,31 +115,14 @@
         <div class="modal fade bd-example-modal-sm rounded-0" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-sm">
                 <div class="modal-content">
-                    <div id="img-modal" class="row px-3 pb-3 border-dark">
-                    </div>
+                    <div id="img-modal" class="row px-3 pb-3 border-dark"></div>
                 </div>
             </div>
         </div>
         <!-- Imagenes de pokemon -->
-        <div class="row">
-            <div id="pokemons" class="col-12 pb-2 mx-auto"></div>
+        <div id="pokemons" class="row">
         </div>
     </div>
-
-    <script>
-        function drawPokemon() {
-            var _col = "-2"; // numero de columnas por imagen
-            var _nPok = 150; // numero de pokemon
-            var _link = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/";
-            for (var col = 1; col < _nPok; col++) {
-                out = "<input type='image' id='" + col + "' src='" + _link + col + ".png' ";
-                out += "class='col" + _col + " p-auto image' data-toggle='modal' data-target='.bd-example-modal-sm's>";
-                $('#pokemons').before(out);
-            }
-        }
-        drawPokemon();
-    </script>
-
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
