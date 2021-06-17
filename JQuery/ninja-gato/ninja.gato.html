@@ -11,6 +11,12 @@
     <script type="text/javascript">
         var speed = 1000;
         $(document).ready(function() {
+            // carga imagenes
+            $('#contRow').append('<h1 class="col-12 mb-5">Ninja &#128565 - Gato &#128576</h1>');
+            for (let i = 0; i < 4; i++) {
+                $('#contRow').append('<img class="col-12 mb-3" src="img/ninja' + i + '.png" alt-src="img/cat' + i + '.png" alt="parte-0">');
+            }
+            // cambia imagenes
             $('img').click(function() {
                 let img_alt_temp = $(this).attr('alt-src');
                 let img_temp = $(this).attr('src');
@@ -42,15 +48,7 @@
 
 <body>
     <div class="container px-5 py-3">
-        <div class="row my-3 text-center">
-            <h1 class="col-12 mb-5">Ninja &#128565 - Gato &#128576</h1>
-            <img class="col-12 mb-3" src="img/ninja0.png" alt-src="img/cat0.png" alt="parte-0">
-            <img class="col-12 mb-3" src="img/ninja1.png" alt-src="img/cat1.png" alt="parte-1">
-            <img class="col-12 mb-3" src="img/ninja2.png" alt-src="img/cat2.png" alt="parte-2">
-            <img class="col-12 mb-3" src="img/ninja3.png" alt-src="img/cat3.png" alt="parte-3">
-            <img class="col-12 mb-3" src="img/ninja4.png" alt-src="img/cat4.png" alt="parte-4">
-        </div>
-
+        <div id="contRow" class="row my-3 text-center"></div>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
