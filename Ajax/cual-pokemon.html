@@ -8,44 +8,27 @@
     <title>:: Pokedex ::</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-    <style>
-        .container {
-            background-color: rgb(255, 246, 208);
-            border-radius: 40px !important;
-            border: 10px solid rgb(53, 96, 172) !important;
-        }
-        
-        .image {
-            min-width: 120px;
-            height: auto;
-            margin: auto !important;
-        }
-        
-        .img-modal {
-            min-width: 90px;
-            width: fit-content !important;
-            height: auto !important;
-            margin: auto !important;
-        }
-        
-        .modal {
-            color: rgb(22, 78, 173);
-        }
-        
-        .modal-content {
-            background-color: rgb(255, 246, 208) !important;
-            border-radius: 30px !important;
-            border: 5px solid rgb(22, 78, 173) !important;
-            min-width: 350px;
-            height: fit-content;
-        }
-    </style>
-
     <script>
         $(document).ready(function() {
+            // Carga pagina estatica
+            // Logo
+            var logo = '<div class="row mt-3 mb-5 pb-3">';
+            logo += '<img id="logoPok" class="col-8 mx-auto" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1920px-International_Pok%C3%A9mon_logo.svg.png" alt="logo pokemon">';
+            logo += '</div>'
+            $('.container').append(logo);
+            // Modal (bootstrap)
+            var mod = '<div class="modal fade bd-example-modal-sm rounded-0" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">';
+            mod += '<div class="modal-dialog modal-sm">';
+            mod += '<div class="modal-content">';
+            mod += '<div id="img-modal" class="row px-3 pb-3 border-dark"></div>';
+            mod += '</div></div></div>';
+            $('.container').append(mod);
+            // Contain pokemon
+            $('.container').append('<div id="pokemons" class="row"></div>');
+
             // Carga pokemon en pantalla
             var _col = "-2"; // numero de columnas por imagen
-            var _nPok = 150; // numero de pokemon
+            var _nPok = 360; // numero de pokemon
 
             function drawPokemon() {
                 var _link = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/";
@@ -56,7 +39,7 @@
                 }
             }
             drawPokemon();
-            /*
+            /* Intento por cargar desde la api directamente, aun no funciona
             for (let i = 1; i <= _nPok; i++) {
                 $.get("https://pokeapi.co/api/v2/pokemon/" + i + "/", function(res) {
                     var out = "<input type='image' id='" + i;
@@ -66,6 +49,15 @@
                 }, "json");
             }
             */
+
+            // Estilos
+            $('.container').attr('style', 'background-color: rgb(255, 246, 208);border-radius: 40px !important;border: 10px solid rgb(53, 96, 172) !important;');
+            $('.image').attr('style', 'min-width: 120px; height: auto; margin: auto !important;');
+            $('.img-modal').attr('style', 'min-width: 90 px; width: fit-content !important; height: auto !important; margin: auto !important;');
+            $('.modal').attr('style', 'color: rgb(22, 78, 173);');
+            $('.modal-content').attr('style', 'background-color: rgb(255, 246, 208) !important; border-radius: 30px !important; border: 5px solid rgb(22, 78, 173) !important; min-width: 350px; height: fit-content;');
+
+
 
             // Accion al clickear una imagen
             $('.image').click(function() {
@@ -106,23 +98,7 @@
 </head>
 
 <body>
-    <div class="container px-5 py-3">
-        <!-- Logo -->
-        <div class="row mt-3 mb-5 pb-3">
-            <img id="logoPok" class="col-8 mx-auto" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1920px-International_Pok%C3%A9mon_logo.svg.png" alt="">
-        </div>
-        <!-- Modal -->
-        <div class="modal fade bd-example-modal-sm rounded-0" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-sm">
-                <div class="modal-content">
-                    <div id="img-modal" class="row px-3 pb-3 border-dark"></div>
-                </div>
-            </div>
-        </div>
-        <!-- Imagenes de pokemon -->
-        <div id="pokemons" class="row">
-        </div>
-    </div>
+    <div class="container px-5 py-3"></div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
