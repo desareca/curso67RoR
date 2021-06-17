@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>:: Weather ::</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+        var _link = "https://api.openweathermap.org/data/2.5/weather?q=";
+        var _api = "&&appid=" + "495a9fbf420999ba1ef94b5f6a49695e"; //user key
+        $(document).ready(function() {
+            // Carga pagina estatica
+            var form = '<div class="container container-sm px-3 pt-5 mx-auto mt-4">' +
+                //form (bootstrap)
+                '<form class="row form-inline pb-5">' +
+                '<label class="col-2 control-label pr-2 py-auto" for="inputCity">City:</label>' +
+                '<input type="text" class="col-6 form-control pb-2 mr-2" id="inputCity" placeholder="London">' +
+                '<button id="btn-query" type="button" class="col btn btn-primary pb-2 mr-4">Submit</button>' +
+                '</form>' +
+                //text
+                '<p id="showCity" class="row px-5 shadow-lg"></p>' +
+                '<p id="showTemp" class="row px-5 shadow-lg"></p>' +
+                '<p id="showCoord" class="row px-5 shadow-lg"></p>' +
+                '</div>';
+            $('body').html(form);
+            // boton activa API
+            $('#btn-query').click(function() {
+                let city = $('#inputCity').val();
+                let _dir = _link + city + _api;
+                $.ajax({ //no encontré como manejar el error con .get
+                    url: _dir,
+                    timeout: 2000,
+                    dataType: "json",
+                    success: function(res) {
+                        $('#showCity').html('Weather in ' + res.name + ':  &nbsp <span class="textData">' + res.weather[0].description + '</span>');
+                        $('#showTemp').html('Temperature: &nbsp <span class="textData">' + res.main.temp + ' F</span>');
+                        $('#showCoord').html('Coord:  &nbsp <span class="textData">' + res.coord.lon + ', ' + res.coord.lat + '</span>');
+                    },
+                    error: function(res) {
+                        $('#showCity').html('<span class="textData">' + "City not found" + ',&nbsptry another city</span>');
+                        $('#showTemp').html('');
+                        $('#showCoord').html('');
+                    }
+                });
+            });
+        });
+    </script>
+
+    <style>
+        .container {
+            background-color: rgb(235, 230, 191);
+            border-radius: 30px !important;
+            border: 5px solid rgb(97, 0, 0) !important;
+            width: 600px !important;
+            min-height: 320px;
+            color: rgb(97, 0, 0) !important;
+            font-size: x-large;
+        }
+        
+        .btn-primary {
+            background-color: rgb(97, 0, 0) !important;
+            border-color: rgb(97, 0, 0) !important;
+        }
+        
+        .textData {
+            color: rgb(0, 39, 97) !important;
+            font-style: italic !important;
+        }
+    </style>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+</head>
+
+<body></body>
+
+</html>
