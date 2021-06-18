@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>:: Game of Thrones ::</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+        var saveData = [];
+        $(document).ready(function() {
+            // crea array con name de la api, id de la img
+            var idHouse = [{ //Stark
+                name: "House Stark of Winterfell",
+                id: '#hStark'
+            }, { //Targaryen
+                name: "House Targaryen of King's Landing",
+                id: '#hTargaryen'
+            }, { //Lannister
+                name: "House Lannister of Casterly Rock",
+                id: '#hLannister'
+            }, { //Baratheon
+                name: "House Baratheon of Storm's End",
+                id: '#hBaratheon'
+            }];
+
+            //Funcion que asigna a cada imagen la url asociada a su imagen (atributo id-link)
+            function addVarName(x) {
+                for (let i = 0; i < idHouse.length; i++) {
+                    if (idHouse[i].name == x.name) {
+                        $(idHouse[i].id).attr('id-link', x.url);
+                    }
+                }
+            };
+
+            //recorre las 444 casas buscando url (por lo que pude revisar)
+            for (let i = 1; i <= 444; i++) {
+                $.get("https://www.anapioficeandfire.com/api/houses/" + i, function(res) {
+                    addVarName(res);
+                }, "json");
+            }
+
+            //Modifica informacion sobre casas en funcion del click en las imagenes
+            $('.imgHouse').click(function() {
+                $.get($(this).attr('id-link'), function(res) {
+                    let titles = "<ul style='list-style:none'>";
+                    for (var i = 0; i < res.titles.length; i++) {
+                        titles += "<li class='ml-4'>" + res.titles[i] + "</li>";
+                    }
+                    titles += "</ul>";
+                    $('#nameData').html(res.name);
+                    $('#nameWords').html(res.words);
+                    $('#nameTitles').html(titles);
+                }, "json");
+            });
+        });
+    </script>
+
+    <style>
+        @font-face {
+            font-family: 'GOT';
+            src: url('gameofthrones/Game_of_Thrones.ttf');
+        }
+        
+        body {
+            /* The image used */
+            background-image: url('gameofthrones/game-of-thrones-poster.jpg');
+            /* Full height */
+            height: 100%;
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: repeat;
+            /* background-size: cover; */
+            position: absolute;
+            overflow: hidden;
+        }
+        
+        body::before {
+            content: '';
+            display: block;
+            background: inherit;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            filter: blur(3px);
+        }
+        
+        ul {
+            margin-left: -65px;
+        }
+        
+        #textBox {
+            width: 600px;
+            background-color: rgba(71, 71, 58, 0.8);
+            color: rgb(231, 231, 100);
+            font-family: 'GOT';
+            letter-spacing: 1pt;
+            word-spacing: 2pt;
+        }
+        
+        #textBox p {
+            color: rgb(190, 138, 95);
+        }
+        
+        .textData {
+            color: rgb(231, 231, 100);
+        }
+    </style>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row p-5">
+            <input type='image' id='hStark' src='gameofthrones/stark.jpg' class='col-3 imgHouse'>
+            <input type='image' id='hTargaryen' src='gameofthrones/targaryen.jpg' class='col-3 imgHouse'>
+            <input type='image' id='hLannister' src='gameofthrones/lannister.jpg' class='col-3 imgHouse'>
+            <input type='image' id='hBaratheon' src='gameofthrones/baratheon.png' class='col-3 imgHouse'>
+            <div class='row mx-auto mt-5'>
+                <div id='textBox' class="col-9 mx-auto p-3 textData">
+                    <h2 class='row mx-3 mb-3'>House Details</h2>
+                    <p class='row mx-3 mb-0'>Name:</p>
+                    <span id="nameData" class="row textData mt-0 mx-3 mb-2"></span>
+                    <p class='row mx-3 mb-0'>Words:</p>
+                    <span id="nameWords" class="row textData mt-0 mx-3  mb-4"></span>
+                    <p class='row mx-3 mb-0'>Titles:</p>
+                    <span id="nameTitles" class="row textData mt-0 mx-3"></span>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
