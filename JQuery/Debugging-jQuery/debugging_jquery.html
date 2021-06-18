@@ -3,16 +3,18 @@
 <head>
     <title>jQuery</title>
     <link rel="stylesheet" type="text/css" href="debugging_jquery.css">
-    <script type="text/javascript" src='http://code.jquery.com/jquery-1.10.2.min.js'></script>
+    <!--error1-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!--error1-->
     <script type="text/javascript">
         // Errores:
-        //1. faltaba $(document).ready(function() {})
-        //2. hoverfuntion estaba mal escrita
-        //3. slide Down está mal escrito
-        //4. $('input:checked').value() está mal escrito
-        //5. No encuentro un 5 error, pero funciona como está indicado.
-        $(document).ready(function() { //error 1
-            $('p, h3, li').hover(function() { //error2
+        //1. Actualizacion libreria jquery
+        //2. faltaba $(document).ready(function() {})
+        //3. hoverfuntion estaba mal escrita
+        //4. slide Down está mal escrito
+        //5. $('input:checked').value() está mal escrito
+        $(document).ready(function() { //error 2
+            $('p, h3, li').hover(function() { //error3
                 $(this).css('color', 'white');
             }, function() {
                 $(this).css('color', 'black');
@@ -27,11 +29,11 @@
             });
 
             $('h5').click(function() {
-                $('img').slideDown(); //error3
+                $('img').slideDown(); //error4
             });
 
             $('button').click(function() {
-                var result = $('input:checked').val(); //error4
+                var result = $('input:checked').val(); //error5
                 alert("Thank you for your input, we like " + result + " too!");
             });
         });
