@@ -26,29 +26,53 @@
             // Contain pokemon
             $('.container').append('<div id="pokemons" class="row"></div>');
 
-            // Carga pokemon en pantalla
+            // obtiene datos, los ordena, carga pantalla y define accion al clickear imagen
             var _col = "-2"; // numero de columnas por imagen
-            var _nPok = 360; // numero de pokemon
-
-            function drawPokemon() {
-                var _link = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/";
-                for (var i = 1; i <= _nPok; i++) {
-                    out = "<input type='image' id='" + i + "' src='" + _link + i + ".png' ";
-                    out += "class='col" + _col + " p-auto image' data-toggle='modal' data-target='.bd-example-modal-sm'>";
-                    $('#pokemons').append(out);
-                }
-            }
-            drawPokemon();
-            /* Intento por cargar desde la api directamente, aun no funciona
+            var _nPok = 898; // numero de pokemon
+            var arrayTemporal = [];
             for (let i = 1; i <= _nPok; i++) {
-                $.get("https://pokeapi.co/api/v2/pokemon/" + i + "/", function(res) {
-                    var out = "<input type='image' id='" + i;
-                    out += "' src='" + res.sprites.front_shiny + "' ";
-                    out += "class='col" + _col + " p-auto image' data-toggle='modal' data-target='.bd-example-modal-sm'>";
-                    $('#pokemons').append(out);
+                //obtener respuesta desde una url en formatoJSON
+                $.get("https://pokeapi.co/api/v2/pokemon/" + i + "/", function(respuesta) {
+                    arrayTemporal.push(respuesta);
+                    arrayTemporal.sort((a, b) => (a.id > b.id) && 1 || -1); //Ordenar array de objetos 
+                    // Carga pokemon en pantalla
+                    if (arrayTemporal.length == _nPok) {
+                        for (let j = 0; j < arrayTemporal.length; j++) {
+                            out = "<input type='image' id='" + j + "' src='" + arrayTemporal[j].sprites.front_default + "'";
+                            out += "class='col" + _col + " p-auto image' data-toggle='modal' data-target='.bd-example-modal-sm'>";
+                            $('#pokemons').append(out);
+                        }
+                        // Accion al clickear una imagen (genera etiquetas dentro del modal)
+                        $('.image').click(function() {
+                            var id = $(this).attr("id");
+                            var html_str = "";
+                            //Nombre
+                            html_str += "<h1 class='col-12 mt-3 text-center shadow-lg'>" + arrayTemporal[id].forms[0].name + "</h1>";
+                            //Imagen
+                            html_str += "<img src='" + arrayTemporal[id].sprites.front_default + "' class='col-12 p-auto img-modal'>";
+                            //Tipo
+                            html_str += "<h4 class='col-12 ml-4 shadow-lg'>Types:</h4>";
+                            html_str += "<ul>";
+                            for (var k = 0; k < arrayTemporal[id].types.length; k++) {
+                                html_str += "<li class='ml-4'>" + arrayTemporal[id].types[k].type.name + "</li>";
+                            }
+                            html_str += "</ul>";
+                            //Altura
+                            html_str += "<h4 class='col-12 ml-4 shadow-lg'>Height:</h4>";
+                            html_str += "<ul style='list-style:none'>";
+                            html_str += "<li>" + arrayTemporal[id].height + "</li>";
+                            html_str += "</ul>";
+                            //Peso
+                            html_str += "<h4 class='col-12 ml-4 shadow-lg'>Weight:</h4>";
+                            html_str += "<ul style='list-style:none'>";
+                            html_str += "<li>" + arrayTemporal[id].weight + "</li>";
+                            html_str += "</ul>";
+                            $("#img-modal").html(html_str);
+                        });
+                    }
                 }, "json");
+
             }
-            */
 
             // Estilos
             $('.container').attr('style', 'background-color: rgb(255, 246, 208);border-radius: 40px !important;border: 10px solid rgb(53, 96, 172) !important;');
@@ -57,38 +81,6 @@
             $('.modal').attr('style', 'color: rgb(22, 78, 173);');
             $('.modal-content').attr('style', 'background-color: rgb(255, 246, 208) !important; border-radius: 30px !important; border: 5px solid rgb(22, 78, 173) !important; min-width: 350px; height: fit-content;');
 
-
-
-            // Accion al clickear una imagen
-            $('.image').click(function() {
-                var id = $(this).attr("id");
-                $.get("https://pokeapi.co/api/v2/pokemon/" + id + "/", function(res) {
-                    var html_str = "";
-                    //Nombre
-                    html_str += "<h1 class='col-12 mt-3 text-center shadow-lg'>" + res.forms[0].name + "</h1>";
-                    //Imagen
-                    html_str += "<img src='" + res.sprites.front_shiny + "' class='col-12 p-auto img-modal'>";
-                    console.log(res.sprites.front_shiny);
-                    //Tipo
-                    html_str += "<h4 class='col-12 ml-4 shadow-lg'>Types:</h4>";
-                    html_str += "<ul>";
-                    for (var i = 0; i < res.types.length; i++) {
-                        html_str += "<li class='ml-4'>" + res.types[i].type.name + "</li>";
-                    }
-                    html_str += "</ul>";
-                    //Altura
-                    html_str += "<h4 class='col-12 ml-4 shadow-lg'>Height:</h4>";
-                    html_str += "<ul style='list-style:none'>";
-                    html_str += "<li>" + res.height + "</li>";
-                    html_str += "</ul>";
-                    //Peso
-                    html_str += "<h4 class='col-12 ml-4 shadow-lg'>Weight:</h4>";
-                    html_str += "<ul style='list-style:none'>";
-                    html_str += "<li>" + res.weight + "</li>";
-                    html_str += "</ul>";
-                    $("#img-modal").html(html_str);
-                }, "json");
-            });
         });
     </script>
 
