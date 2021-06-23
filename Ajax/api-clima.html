@@ -35,9 +35,11 @@
                     timeout: 2000,
                     dataType: "json",
                     success: function(res) {
+                        console.dir(res);
+                        let tempC = res.main.temp - 273.15; // transforma °K a °C
                         $('#showCity').html('Weather in ' + res.name + ':  &nbsp <span class="textData">' + res.weather[0].description + '</span>');
-                        $('#showTemp').html('Temperature: &nbsp <span class="textData">' + res.main.temp + ' F</span>');
-                        $('#showCoord').html('Coord:  &nbsp <span class="textData">' + res.coord.lon + ', ' + res.coord.lat + '</span>');
+                        $('#showTemp').html('Temperature: &nbsp <span class="textData">' + tempC.toFixed(2) + ' °C</span>'); //toFixed limita el numero de decimales
+                        $('#showCoord').html('Coord:  &nbsp <span class="textData">' + res.coord.lon.toFixed(2) + ', ' + res.coord.lat.toFixed(2) + '</span>');
                     },
                     error: function(res) {
                         $('#showCity').html('<span class="textData">' + "City not found" + ',&nbsptry another city</span>');
