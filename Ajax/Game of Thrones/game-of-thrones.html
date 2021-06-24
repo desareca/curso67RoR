@@ -42,9 +42,11 @@
                 }, "json");
             }
 
+
             //Modifica informacion sobre casas en funcion del click en las imagenes
             $('.imgHouse').click(function() {
                 $.get($(this).attr('id-link'), function(res) {
+                    $('#textBox').show();
                     let titles = "<ul style='list-style:none'>";
                     for (var i = 0; i < res.titles.length; i++) {
                         titles += "<li class='ml-4'>" + res.titles[i] + "</li>";
@@ -100,6 +102,7 @@
             font-family: 'GOT';
             letter-spacing: 1pt;
             word-spacing: 2pt;
+            display: none;
         }
         
         #textBox p {
