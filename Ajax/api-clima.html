@@ -42,6 +42,7 @@
                         $('#showCoord').html('Coord:  &nbsp <span class="textData">' + res.coord.lon.toFixed(2) + ', ' + res.coord.lat.toFixed(2) + '</span>');
                     },
                     error: function(res) {
+                        console.dir(res);
                         $('#showCity').html('<span class="textData">' + "City not found" + ',&nbsptry another city</span>');
                         $('#showTemp').html('');
                         $('#showCoord').html('');
