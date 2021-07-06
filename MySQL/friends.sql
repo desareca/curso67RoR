@@ -1,3 +1,7 @@
+-- Borra tabla si existe y la crea de nuevo
+DROP DATABASE IF EXISTS friends;
+CREATE DATABASE  IF NOT EXISTS `friends` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `friends`;
 -- MySQL dump 10.13  Distrib 5.7.12, for Win64 (x86_64)
 --
 -- Host: localhost    Database: friends
