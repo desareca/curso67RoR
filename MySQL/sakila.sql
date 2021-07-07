@@ -2,15 +2,16 @@
 use sakila;
 -- 1. ¿Qué consulta ejecutarías para obtener todos los clientes dentro de city_id = 312? 
 -- Su consulta debe devolver el nombre, apellido, correo electrónico y dirección del cliente.
-select customer.first_name as nombre, customer.last_name as apellido, customer.email, address.address as direccion
+select customer.first_name nombre, customer.last_name apellido ,customer.email, address.address direccion, city.city ciudad
 from address
 join customer on customer.address_id = address.address_id
+join city on city.city_id = address.city_id
 where address.city_id=312;
 
 
 -- 2. ¿Qué consulta harías para obtener todas las películas de comedia? 
 -- Su consulta debe devolver el título de la película, la descripción, el año de estreno, la calificación, las características especiales y el género (categoría).
-select film.title, film.description, film.release_year, film.rating, film.special_features, category.name as genre
+select film.title, film.description, film.release_year, film.rating, film.special_features, category.name genre
 from film_category
 join film on film.film_id = film_category.film_id
 join category on category.category_id = film_category.category_id
@@ -28,7 +29,7 @@ where actor.actor_id=5;
 
 -- 4. ¿Qué consulta ejecutaría para obtener todos los clientes en store_id = 1 y dentro de estas ciudades (1, 42, 312 y 459)? 
 -- Su consulta debe devolver el nombre, apellido, correo electrónico y dirección del cliente.
-select customer.first_name, customer.last_name, customer.email, address.address
+select address.city_id, customer.first_name, customer.last_name, customer.email, address.address
 from customer
 join store on store.store_id=customer.store_id
 join address on address.address_id=customer.address_id
