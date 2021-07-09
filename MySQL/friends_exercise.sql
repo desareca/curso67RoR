@@ -15,6 +15,7 @@ JOIN users as user2 ON friendships.friend_id=user2.id;
 
 -- 1. Devuelva a todos los usuarios que son amigos de Kermit, asegúrese de que sus nombres se muestren en los resultados.
 set @search_name = 'Kermit'; -- genera variable con el nombre a buscar
+
 (
 	select concat(users.first_name, ' ', users.last_name) as friends from users 
 	join friendships on friendships.user_id=users.id
@@ -58,17 +59,18 @@ where num_friends >= ALL(select num_friends from resume_friends);
 -- 4. Crea un nuevo usuario y hazlos amigos de Eli Byers, Kermit The Frog y Marky Mark.
 insert into users (first_name, last_name, created_at)
 values ('Carlos', 'Saquel', now()); -- crea el usuario Carlos Saquel
+
 select * from users;
 
 -- crea las variable id de cada user a trabajar.
-set @id_eli = (select id from users where first_name = 'Eli');
-set @id_kermit = (select id from users where first_name = 'Kermit');
-set @id_marky = (select id from users where first_name = 'Marky');
-set @id_carlos = (select id from users where first_name = 'Carlos');
+set @id_eli = (select id from users where first_name = 'Eli'); -- id = 2
+set @id_kermit = (select id from users where first_name = 'Kermit'); -- id = 4
+set @id_marky = (select id from users where first_name = 'Marky'); -- id = 5
+set @id_carlos = (select id from users where first_name = 'Carlos'); -- id = 6
 
 -- Hace amigo a Carlos Saquel con Eli Byers
 insert into friendships (user_id, friend_id, created_at)
-values (@id_carlos, @id_eli, now()); 
+values (@id_carlos, @id_eli, now());
 -- Hace amigo a Carlos Saquel con Kermit The Frog
 insert into friendships (user_id, friend_id, created_at)
 values (@id_carlos, @id_kermit, now()); 
